@@ -1,17 +1,12 @@
-<script setup>
-import Navbar from './components/navbar.vue'
-import Particles from './components/particles.vue'
-import { onMounted } from "vue";
-
-
-</script>
-
 <template>
-  <Particles />
-  <Navbar />
+  <div class="app-container">
+    <Particles />
+    <Navbar />
+    <router-view />
+  </div>
 </template>
 
-
-<style scoped>
-/* Seus estilos opcionais aqui */
-</style>
+<script setup>
+import Navbar from './components/Navbar.vue';
+import Particles from './components/Particles.vue';
+</script>

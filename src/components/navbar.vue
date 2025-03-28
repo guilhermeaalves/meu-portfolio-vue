@@ -10,7 +10,7 @@ const navigation = [
 </script>
 
 <template>
-  <Disclosure as="nav" class="bg-[#1a1a1a]" v-slot="{ open }">
+  <Disclosure as="nav" class="bg-[#121212]" v-slot="{ open }">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -23,9 +23,7 @@ const navigation = [
             <XMarkIcon v-else class="block h-6 w-6" aria-hidden="true" />
           </DisclosureButton>
         </div>
-        <div
-          class="flex flex-1 items-center justify-between sm:items-stretch"
-        >
+        <div class="flex flex-1 items-center justify-between sm:items-stretch">
           <div class="flex flex-shrink-0 items-center">
             <img
               class="h-8 w-auto"
@@ -51,9 +49,7 @@ const navigation = [
               </a>
             </div>
           </div>
-          <div class="hidden sm:ml-6 sm:block">
-            
-          </div>
+          <div class="hidden sm:ml-6 sm:block"></div>
         </div>
       </div>
     </div>

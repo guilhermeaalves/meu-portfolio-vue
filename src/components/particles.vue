@@ -1,68 +1,101 @@
-<script setup>
-import { ref } from 'vue'
-import VueParticles from 'vue-particles'
-
-const particlesParams = ref({
-  particles: {
-    number: {
-      value: 380,
-      density: {
-        enable: true,
-        value_area: 800,
-      },
-    },
-    color: {
-      value: "#ffffff",
-    },
-    shape: {
-      type: "circle",
-    },
-    opacity: {
-      value: 0.5,
-    },
-    size: {
-      value: 3,
-      random: true,
-    },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: "#ffffff",
-      opacity: 0.4,
-      width: 1,
-    },
-    move: {
-      enable: true,
-      speed: 6,
-    },
-  },
-  interactivity: {
-    detect_on: "canvas",
-    events: {
-      onhover: {
-        enable: true,
-        mode: "grab",
-      },
-      onclick: {
-        enable: true,
-        mode: "push",
-      },
-      resize: true,
-    },
-  },
-  retina_detect: true,
-})
-</script>
-
 <template>
-  <vue-particles :params="particlesParams" />
+  <div id="tsparticles-container" ref="particlesContainer"></div>
 </template>
 
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
+import { loadSlim } from '@tsparticles/slim';
+import { tsParticles } from '@tsparticles/engine';
+
+const particlesContainer = ref(null);
+
+onMounted(async () => {
+  await loadSlim(tsParticles);
+
+  await tsParticles.load({
+    id: 'tsparticles',
+    element: particlesContainer.value,
+    options: {
+      background: {
+        color: '#121212' // Cor de fundo escura
+      },
+      particles: {
+        number: {
+          value: 100,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: {
+          value: '#ffffff' // Partículas brancas
+        },
+        shape: {
+          type: 'circle'
+        },
+        opacity: {
+          value: 0.5
+        },
+        size: {
+          value: 3,
+          random: true
+        },
+        links: {
+          enable: true,
+          distance: 150,
+          color: '#ffffff',
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 4,
+          direction: 'none',
+          outModes: 'out'
+        }
+      },
+      interactivity: {
+        events: {
+          onHover: {
+            enable: true,
+            mode: 'grab'
+          },
+          onClick: {
+            enable: true,
+            mode: 'push'
+          }
+        },
+        modes: {
+          grab: {
+            distance: 140,
+            links: {
+              opacity: 1
+            }
+          },
+          push: {
+            quantity: 4
+          }
+        }
+      },
+      retina_detect: true
+    }
+  });
+});
+
+onUnmounted(async () => {
+  if (tsParticles) {
+    await tsParticles.destroy();
+  }
+});
+</script>
+
 <style scoped>
-#particles-js {
-  position: absolute;
+#tsparticles-container {
+  position: fixed;
   width: 100%;
-  height: 100vh;
-  background-color: #000;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 </style>
