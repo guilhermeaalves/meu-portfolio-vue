@@ -17,18 +17,18 @@ onMounted(async () => {
     element: particlesContainer.value,
     options: {
       background: {
-        color: '#121212' // Cor de fundo escura
+        color: '#121212'
       },
       particles: {
         number: {
-          value: 100,
+          value: 25,
           density: {
             enable: true,
             value_area: 800
           }
         },
         color: {
-          value: '#ffffff' // Partículas brancas
+          value: '#ffffff'
         },
         shape: {
           type: 'circle'
@@ -42,14 +42,14 @@ onMounted(async () => {
         },
         links: {
           enable: true,
-          distance: 150,
+          distance: 400,
           color: '#ffffff',
           opacity: 0.4,
           width: 1
         },
         move: {
           enable: true,
-          speed: 4,
+          speed: 3,
           direction: 'none',
           outModes: 'out'
         }
