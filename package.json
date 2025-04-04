@@ -17,6 +17,7 @@
     "@tsparticles/vue3": "^3.0.1",
     "@types/three": "^0.175.0",
     "@vueuse/core": "^13.0.0",
+    "tailwind-variants": "^1.0.0",
     "three": "^0.175.0",
     "three-globe": "^2.42.3",
     "tsparticles": "^3.8.1",
